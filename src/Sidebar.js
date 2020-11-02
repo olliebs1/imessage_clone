@@ -3,6 +3,7 @@ import React from 'react'
 import './Sidebar.css'
 import SearchIcon from '@material-ui/icons/Search'
 import RateReviewOutlinedIcon from '@material-ui/icons/RateReviewOutlined'
+import SidebarChat from './SidebarChat'
 
 function Sidebar() {
     return (
@@ -20,7 +21,9 @@ function Sidebar() {
             </div>
 
             <div className='sidebar_chats'>
-            </div>
+                <SidebarChat />
+
+            </div>  
         </div>  
     )
 }

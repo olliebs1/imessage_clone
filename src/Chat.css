@@ -13,3 +13,12 @@
     border-bottom: 1px solid lightgray;
     background-color: #f5f5f5;
 }
+
+.chat_header > h4 {
+    font-weight: 500;
+    color: gray;
+}
+
+.chat_name {
+    color: black;
+}

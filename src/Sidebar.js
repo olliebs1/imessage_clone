@@ -8,13 +8,13 @@ function Sidebar() {
     return (
         <div className='sidebar'>
             <div className='sidebar_header'>
-                <Avatar />
+                <Avatar className='sidebar_avatar'/>
                 <div className="sidebar_input">
                     <SearchIcon/>
                     <input placeholder='Search'/>
                 </div>
 
-                <IconButton >
+                <IconButton variant='outlined' className='sidebar_inputButton'>
                     <RateReviewOutlinedIcon/>
                 </IconButton>
             </div>

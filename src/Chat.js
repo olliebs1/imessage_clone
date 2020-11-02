@@ -1,4 +1,7 @@
+import {IconButton} from '@material-ui/core'
+import MicNoneIcon from '@material-ui/icons/MicNone'
 import React, { useState } from 'react'
+
 import './Chat.css'
 
 function Chat() {
@@ -27,6 +30,10 @@ function Chat() {
                     placeholder='iMessage' type='text'/>
                     <button onClick={sendMessage} >Send Message</button>
                 </form>
+
+                <IconButton>
+                    <MicNoneIcon className='chat_mic'/>
+                </IconButton>
             </div>
 
             {/* chat input */}

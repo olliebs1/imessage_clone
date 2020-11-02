@@ -34,3 +34,16 @@
     background: transparent;
     outline-width: 0;
 }
+
+.sidebar_chats {
+    overflow: scroll;
+}
+
+.sidebar_chats::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar_chats {
+    -ms-text-overflow-style: none;
+    scrollbar-width: none;
+}

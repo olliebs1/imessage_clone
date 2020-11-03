@@ -21,6 +21,18 @@ function Sidebar() {
             })))
         })
     }, [])
+
+    const addChat = () => {
+
+        const chatName = prompt('Please enter a chat name');
+
+        if(chatName) {
+            db.collection('chats').add({
+                chatName: chatName,
+            });
+        }
+    };
+
     return (
         <div className='sidebar'>
             <div className='sidebar_header'>
@@ -31,7 +43,7 @@ function Sidebar() {
                 </div>
 
                 <IconButton variant='outlined' className='sidebar_inputButton'>
-                    <RateReviewOutlinedIcon/>
+                    <RateReviewOutlinedIcon onClick={addChat}/>
                 </IconButton>
             </div>
 

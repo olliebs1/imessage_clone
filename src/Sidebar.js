@@ -36,9 +36,9 @@ function Sidebar() {
             </div>
 
             <div className='sidebar_chats'>
-                <SidebarChat />
-                <SidebarChat />
-                <SidebarChat />
+                {chats.map(({id, data: { chatName }}) => {
+                    return <SidebarChat key={id} id={id} chatName={chatName}/>
+                })}
             </div>  
         </div>  
     )

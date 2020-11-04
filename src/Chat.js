@@ -2,13 +2,15 @@ import {IconButton} from '@material-ui/core'
 import MicNoneIcon from '@material-ui/icons/MicNone'
 import React, { useEffect, useState } from 'react'
 import Message from './Message.js'
-
+import firebase from 'firebase'
 import './Chat.css'
 import { useSelector } from 'react-redux'
 import { selectchatId, selectchatName } from './features/chatSlice.js'
 import db from './firebase.js'
+import { selectUser } from './features/userSlice.js'
 
 function Chat() {
+    const user = useSelector(selectUser);
     const [input, setInput] = useState("");
     const chatName = useSelector(selectchatName);
     const chatId = useSelector(selectchatId);
@@ -34,7 +36,16 @@ function Chat() {
 
     const sendMessage = (e) => {
         e.preventDefault();
+        
         //Firebase
+        db.collection('chats').doc(chatId).collection('messages').ass({
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            message: input,
+            uid: user.uid,
+            photo: user.photo,
+            email: user.email,
+            displayName: user.displayName,
+        })
 
         setInput('');
     }
@@ -49,7 +60,7 @@ function Chat() {
             {/* chat messages */}
             <div className="chat_messages">
                 {messages.map(({ id, data }) => {
-                    <Message key={id} contents={data}/>
+                    return <Message key={id} contents={data}/>
                 })}
             </div>
             <div className="chat_input">

@@ -4,9 +4,14 @@ import React, { useState } from 'react'
 import Message from './Message.js'
 
 import './Chat.css'
+import { useSelector } from 'react-redux'
+import { selectchatName } from './features/chatSlice.js'
 
 function Chat() {
     const [input, setInput] = useState("");
+    const chatName = useSelector(selectchatName);
+
+
 
     const sendMessage = (e) => {
         e.preventDefault();
@@ -19,7 +24,7 @@ function Chat() {
         <div className='chat'>
             {/* chat header  */}
             <div className="chat_header">
-                <h4>To: <span className='chat_name'>Channel name</span></h4>
+                <h4>To: <span className='chat_name'>{chatName}</span></h4>
                 <strong>Details</strong>
             </div>
             {/* chat messages */}

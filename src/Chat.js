@@ -55,7 +55,6 @@ function Chat() {
                 <h4>To: <span className='chat_name'>{chatName}</span></h4>
                 <strong>Details</strong>
             </div>
-            {/* chat messages */}
             <div className="chat_messages">
                 <FlipMove>
                     {messages.map(({ id, data }) => (
@@ -70,7 +69,6 @@ function Chat() {
                         onChange={(e) => {setInput(e.target.value)}} 
                         placeholder='iMessage' 
                         type='text'
-                        // value={input} 
                     />
                     <button onClick={sendMessage}>Send Message</button>
                 </form>
